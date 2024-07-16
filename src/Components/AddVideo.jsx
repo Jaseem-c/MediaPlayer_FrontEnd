@@ -51,8 +51,13 @@ function AddVideo({setAddVideoStatus}) {
 
   const handleUpload= async(e)=>{
     e.preventDefault(e)
-
-    const result= await allVideoapi(video)
+    const {caption,imageUrl,videoUrl}=video
+    if(!caption || !imageUrl || !videoUrl)
+    {
+      toast.info("Please Fill Form Completely")
+    }
+    else{
+      const result= await allVideoapi(video)
       console.log(result);
       if(result.status>=200 && result.status<300)
       {
@@ -65,6 +70,8 @@ function AddVideo({setAddVideoStatus}) {
         toast.error("Something Went Wrong")
         console.log(result);
       }
+    }
+    
   }
   return (
     <>

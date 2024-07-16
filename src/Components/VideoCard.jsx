@@ -4,7 +4,8 @@ import React from 'react'
 import { Button, Card, Modal } from 'react-bootstrap'
 import { useState } from 'react';
 import { addVideoToHistory, deleteVideo } from '../services/allApi';
-
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 function VideoCard({video,SetDeleteVideoStatus,isPresent}) {
   const [show, setShow] = useState(false);
 
@@ -33,11 +34,11 @@ const handleDelete=async(id)=>{
   const result= await deleteVideo(id)
  if(result.status>=200 && result.status<300)
  {
-  alert("video Deleted")
+  toast.success("video Deleted")
   SetDeleteVideoStatus(result.data)
  }
  else{
-  alert("video not Deleted")
+  toast.error("video not Deleted")
  }
  console.log(result);
 }
@@ -68,6 +69,7 @@ const videoDrag=(e,video)=>{
         </Modal.Body>
       </Modal>
 
+      <ToastContainer position="top-right" theme="colored" autoClose={5000}/>
     </>
   )
 }

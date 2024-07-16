@@ -41,7 +41,7 @@ if(result.status>=200 && result.status<300)
 }
  }
 else{
-  toast.error("Please add Category")
+  toast.info("Please add Category")
 }
 
  }
@@ -53,8 +53,15 @@ const getCategory=async()=>{
 }
 // delete category
 const deleteCategory=async(id)=>{
-   await deleteCategoryApi(id);
-   setAddStatus(true)
+ const result=  await deleteCategoryApi(id);
+ if(result.status>=200 && result.status<300)
+ {
+  toast.success("Category deleted Succesfully")
+  setAddStatus(true)
+ }
+  else{
+    toast.error("Something went wrong")
+  }
   // getCategory()
 } 
 

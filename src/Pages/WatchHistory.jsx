@@ -3,7 +3,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { deleteHistoryApi, getVideoHistoryApi } from '../services/allApi'
-
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 function WatchHistory() {
   const [videoHistory, setVideoHistory] = useState([])
   // get video history
@@ -25,8 +26,11 @@ function WatchHistory() {
     console.log(newHistory);
     if(newHistory.status>=200 && newHistory.status<300)
     {
-      alert("deleted")
+      toast.success("History deleted")
       getVideoHistory()
+    }
+    else{
+      toast.error("Something went wrong")
     }
 
   }
@@ -69,6 +73,8 @@ function WatchHistory() {
         </div>
         <div className="col-md-2"></div>
       </div>
+
+      <ToastContainer position="top-right" theme="colored" autoClose={5000}/>
     </>
   )
 }
