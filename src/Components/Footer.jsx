@@ -11,7 +11,7 @@ function Footer() {
    <div className="row w-100 p-5">
     <div className="col-md-4">
       <h4 className='text-warning mb-4'><FontAwesomeIcon icon={faVideo} className='me-3' />Media Player</h4>
-      <p className='text-justify'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure facilis distinctio enim quidem quibusdam in porro quisquam, quod provident. Libero, ut numquam voluptatem veritatis quas nemo! Quibusdam omnis!</p>
+      <p className='text-justify'>The Media Player App enables users to upload, delete, and categorize videos while maintaining a detailed watch history. It offers a streamlined interface for efficient multimedia management and organization.</p>
     </div>
     <div className="col-md-2 d-md-flex justify-content-center">
       <div>
